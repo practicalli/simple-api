@@ -1,7 +1,7 @@
 (ns practicalli.simple-api-test
   (:require [clojure.test :refer :all]
-            [practicalli.simple-api :refer :all]))
+            [practicalli.simple-api :as SUT]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest handler-test
+  (testing "Response to events"
+    (is (= 200 (:status (SUT/handler {}))))))
