@@ -18,7 +18,7 @@
   (server/run-server handler {:port port}))
 
 
-(defn -main
-  "Hacky server start function."
-  []
-  (server 8000))
+#_(defn -main
+    "Hacky server start function."
+    []
+    (server 8000))
