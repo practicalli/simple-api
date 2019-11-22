@@ -1,14 +1,30 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Simple API Server
+;;
+;; Httpkit based JVM web server using
+;; compojure for routing and
+;; spec for contract for API data
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Namespace and dependencies
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (ns practicalli.simple-api
   (:gen-class)
   (:require [org.httpkit.server :as server]))
+
+
+;; Request handling
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn handler
   "A function that handles all requests from the server.
   `req` is a ring request map"
   [req]
   {:status  200
-   :body    "Hello Clojure Server world!"
-   :headers {}})
+   :headers {"Content-Type" "text/html"}
+   :body    "<h1>Hello Clojure Server world!</h1>"})
+
 
 ;; System
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55,5 +71,3 @@
 (defn optional-keys [& {:keys [ip-address port]
                         :or   {port (:port server-config) ip-address (:ip-address server-config)}}]
   (str "Port: " port ", address " ip-address))
-
-
