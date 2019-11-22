@@ -4,4 +4,5 @@
 
 (deftest handler-test
   (testing "Response to events"
-    (is (= 200 (:status (SUT/handler {}))))))
+    (is (= 200 (:status (SUT/handler {}))))
+    (is (not= nil? (:body (SUT/handler {}))))))
