@@ -1,5 +1,5 @@
 (ns practicalli.simple-api-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is testing]]
             [practicalli.simple-api :as SUT]))
 
 (deftest handler-test
